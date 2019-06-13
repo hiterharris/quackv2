@@ -1,4 +1,4 @@
-![Quack Logo](src/assets/images/Logo.png)
+![Quack Logo](src/assets/images/logo.png)
 
 Tinder-style React Native App using [Yelp Fusion API](https://www.yelp.com/developers/documentation/v3)
 
