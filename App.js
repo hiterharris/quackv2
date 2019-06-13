@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  SafeAreaView,
 } from 'react-native';
 
 import Card from './src/components/Card';
@@ -11,19 +12,24 @@ import Header from './src/components/Header';
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.appContainer}>
-        <View style={styles.headerContainer}>
-          <Header />
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.appContainer}>
+          <View style={styles.headerContainer}>
+            <Header />
+          </View>
+          <View style={styles.profileContainer}>
+            <Card />
+          </View>
         </View>
-        <View style={styles.profileContainer}>
-          <Card />
-        </View>
-      </View>
+      </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   appContainer: {
     flex: 1,
     overflow: 'hidden',
@@ -31,7 +37,6 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     alignItems: 'center',
-    marginTop: 40,
   },
   profileContainer: {
     flex: 1,
@@ -39,5 +44,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     margin: 10,
     marginBottom: 150,
-  }
+  },
 });
