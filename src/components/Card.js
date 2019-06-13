@@ -56,6 +56,22 @@ export default class Card extends Component {
             ],
         }
 
+        const starRating = () => {
+            if (rating === 4.0) {
+                return (
+                    <Image style={styles.stars} source={require('../assets/images/4-stars.png')} />
+                );
+            } else if (rating === 4.5) {
+                return (
+                    <Image style={styles.stars} source={require('../assets/images/4.5-stars.png')} />
+                );
+            } else {
+                return (
+                    <Image style={styles.stars} source={require('../assets/images/5-stars.png')} />
+                );
+            }
+        }
+
         return (
             <Animated.View
                 {...this.cardPanResponder.panHandlers}
@@ -70,7 +86,9 @@ export default class Card extends Component {
                         <Text style={styles.restaurantDistance}>0.0 miles</Text>
                     </View>
                     <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
-                    <Text style={styles.restaurantRating}>{rating}/5 Stars</Text>
+                    <View style={styles.restaurauntReview}>
+                        {starRating()}
+                    </View>
                 </View>
             </Animated.View>
         );
@@ -80,20 +98,30 @@ export default class Card extends Component {
 const styles = StyleSheet.create({
     cardContainer: {
         position: "absolute",
-        width: width * .945,
-        height: height * 0.70,
-        overflow: 'hidden',
+        width: width * 0.95,
+        height: height * 0.85,
         backgroundColor: 'white',
         borderWidth: 1,
         borderColor: 'lightgrey',
         borderRadius: 8,
+        margin: 10,
+        padding: 10,
+        shadowColor: 'lightgrey',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.50,
+        shadowRadius: 3.84,
+        elevation: 5,
     },
     cardImage: {
         flex: 1,
-        width: width,
+        width: width * 0.895,
     },
     cardDetails: {
         margin: 10,
+        // marginBottom: -150,
     },
     restaurantDetails: {
         flexDirection: 'row',
@@ -115,8 +143,13 @@ const styles = StyleSheet.create({
         color: 'darkgrey',
         marginBottom: 10,
     },
-    restaurantRating: {
-        fontSize: 15,
-        color: 'grey',
+    restaurauntReview: {
+        width: width * .50,
+        height: height * .25,
+        marginBottom: -150,
+    },
+    stars: {
+        width: '50%',
+        height: '10%',
     }
 });

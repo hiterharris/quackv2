@@ -60,8 +60,5 @@ const styles = StyleSheet.create({
   },
   profileWrapper: {
     flex: 1,
-    overflow: 'hidden',
-    backgroundColor: 'white',
-    margin: 10,
   },
 });
