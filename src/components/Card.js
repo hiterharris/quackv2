@@ -12,6 +12,7 @@ import {
 const { width, height } = Dimensions.get('window');
 
 export default class Card extends Component {
+
     componentWillMount() {
         this.pan = new Animated.ValueXY();
         this.cardPanResponder = PanResponder.create({
@@ -27,7 +28,7 @@ export default class Card extends Component {
                     Animated.decay(this.pan, {
                         velocity: { x: 3 * direction, y: 0 },
                         deceleration: 0.995,
-                    }).start();
+                    }).start(this.props.onSwipeOff);
                 } else {
                     Animated.spring(this.pan, {
                         toValue: { x: 0, y: 0 },
@@ -39,7 +40,9 @@ export default class Card extends Component {
     }
 
     render() {
-        const { name, id, category, distance, rating, image } = this.props.data;
+
+        const { name, categories, rating, image_url } = this.props.profile;
+
         const rotateCard = this.pan.x.interpolate({
             inputRange: [-200, 0, 200],
             outputRange: ['10deg', '0deg', '-10deg'],
@@ -56,17 +59,18 @@ export default class Card extends Component {
         return (
             <Animated.View
                 {...this.cardPanResponder.panHandlers}
-                style={[styles.cardContainer, animatedStyle]}>
+                style={[styles.cardContainer, animatedStyle]} >
                 <Image
                     style={styles.cardImage}
-                    source={{ uri: image }}
+                    source={{ uri: image_url }}
                 />
                 <View style={styles.cardDetails}>
                     <View style={styles.restaurantDetails}>
                         <Text style={styles.restaurantTitle}>{name}</Text>
-                        <Text style={styles.restaurantDistance}>{distance} miles</Text>
+                        <Text style={styles.restaurantDistance}>0.0 miles</Text>
                     </View>
-                    <Text style={styles.restaurantCategory}>{category}</Text>
+                    <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
+                    <Text style={styles.restaurantRating}>{rating}/5 Stars</Text>
                 </View>
             </Animated.View>
         );
@@ -97,7 +101,9 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     restaurantTitle: {
-        fontSize: 30,
+        fontSize: 20,
+        marginTop: 12,
+        width: '50%',
     },
     restaurantDistance: {
         fontSize: 18,
@@ -109,8 +115,8 @@ const styles = StyleSheet.create({
         color: 'darkgrey',
         marginBottom: 10,
     },
-    reviewCount: {
+    restaurantRating: {
         fontSize: 15,
-        color: 'darkblue',
+        color: 'grey',
     }
 });

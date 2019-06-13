@@ -1,16 +1,23 @@
 [
     {
-        "imageUri": "../assets/images/sitti.png",
         "name": "Sitti",
-        "distance": "0.0",
         "category": "Middle Eastern",
-        "rating": ""
+        "distance": "0.0",
+        "rating": "4.0",
+        "image": "https://ot-foodspotting-production.s3.amazonaws.com/reviews/1733721/thumb_600.jpg"
     },
     {
-        "imageUri": "../assets/images/ajisai.png",
         "name": "Ajisai",
+        "category": "Middle Eastern",
         "distance": "0.0",
-        "category": "Japaneae, Sushi Bars",
-        "rating": ""
+        "rating": "4.4",
+        "image": "https://s3-media3.fl.yelpcdn.com/bphoto/an8uXj1TXqaEJDbf8VObyw/o.jpg"
+    },
+    {
+        "name": "The Cowfish Sushi Burger Bar",
+        "category": "Sushi Bars, Burgers, Asian Fusion",
+        "distance": "0.0",
+        "rating": "4.4",
+        "image": "https://s3-media3.fl.yelpcdn.com/bphoto/an8uXj1TXqaEJDbf8VObyw/o.jpg"
     }
 ]
