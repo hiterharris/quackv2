@@ -4,12 +4,46 @@ import {
     View,
     Text,
     Image,
+    PanResponder,
+    Animated,
 } from 'react-native';
 
 export default class Card extends Component {
+    componentWillMount() {
+        this.pan = new Animated.ValueXY();
+        this.cardPanResponder = PanResponder.create({
+            onStartShouldSetPanResponder: () => true,
+            onPanResponderMove: Animated.event([
+                null,
+                { dx: this.pan.x, dy: this.pan.y },
+            ]),
+            onPanResponderRelease: () => {
+                Animated.spring(this.pan, {
+                    toValue: { x: 0, y: 0 },
+                    friction: 4.5,
+                }).start();
+            },
+        });
+    }
+
     render() {
+        const rotateCard = this.pan.x.interpolate({
+            inputRange: [-200, 0, 200],
+            outputRange: ['10deg', '0deg', '-10deg'],
+        });
+
+        const animatedStyle = {
+            transform: [
+                { translateX: this.pan.x },
+                { translateY: this.pan.y },
+                { rotate: rotateCard },
+            ],
+        }
+
         return (
-            <View style={styles.cardContainer}>
+            <Animated.View
+                {...this.cardPanResponder.panHandlers}
+                style={[styles.cardContainer, animatedStyle]}>
                 <Image
                     style={styles.cardImage}
                     source={require('../assets/images/sitti.png')}
@@ -21,7 +55,7 @@ export default class Card extends Component {
                     </View>
                     <Text style={styles.restaurantCategory}>Middle Eastern</Text>
                 </View>
-            </View>
+            </Animated.View>
         );
     }
 }
