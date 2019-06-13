@@ -4,20 +4,24 @@ import {
   Text,
   View,
   SafeAreaView,
+  Dimensions,
 } from 'react-native';
 
 import Card from './src/components/Card';
 import Header from './src/components/Header';
+
+const { width, height } = Dimensions.get('window');
 
 export default class App extends Component {
   render() {
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.appContainer}>
-          <View style={styles.headerContainer}>
+          <View style={styles.headerWrapper}>
             <Header />
           </View>
-          <View style={styles.profileContainer}>
+          <View style={styles.profileWrapper}>
+            <Card />
             <Card />
           </View>
         </View>
@@ -32,17 +36,15 @@ const styles = StyleSheet.create({
   },
   appContainer: {
     flex: 1,
-    overflow: 'hidden',
     backgroundColor: 'white',
   },
-  headerContainer: {
+  headerWrapper: {
     alignItems: 'center',
   },
-  profileContainer: {
+  profileWrapper: {
     flex: 1,
     overflow: 'hidden',
     backgroundColor: 'white',
     margin: 10,
-    marginBottom: 150,
   },
 });

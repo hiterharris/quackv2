@@ -6,7 +6,10 @@ import {
     Image,
     PanResponder,
     Animated,
+    Dimensions,
 } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 export default class Card extends Component {
     componentWillMount() {
@@ -17,11 +20,20 @@ export default class Card extends Component {
                 null,
                 { dx: this.pan.x, dy: this.pan.y },
             ]),
-            onPanResponderRelease: () => {
-                Animated.spring(this.pan, {
-                    toValue: { x: 0, y: 0 },
-                    friction: 4.5,
-                }).start();
+            onPanResponderRelease: (e, { dx }) => {
+                const absDx = Math.abs(dx);
+                const direction = absDx / dx;
+                if (absDx > 120) {
+                    Animated.decay(this.pan, {
+                        velocity: { x: 3 * direction, y: 0 },
+                        deceleration: 0.995,
+                    }).start();
+                } else {
+                    Animated.spring(this.pan, {
+                        toValue: { x: 0, y: 0 },
+                        friction: 4.5,
+                    }).start();
+                }
             },
         });
     }
@@ -62,19 +74,21 @@ export default class Card extends Component {
 
 const styles = StyleSheet.create({
     cardContainer: {
-        flex: 1,
+        position: "absolute",
+        width: width * .945,
+        height: height * 0.70,
         overflow: 'hidden',
+        backgroundColor: 'white',
         borderWidth: 1,
         borderColor: 'lightgrey',
         borderRadius: 8,
     },
     cardImage: {
         flex: 1,
-        width: '100%',
+        width: width,
     },
     cardDetails: {
         margin: 10,
-        marginBottom: 0,
     },
     restaurantDetails: {
         flexDirection: 'row',
