@@ -1,0 +1,16 @@
+[
+    {
+        "imageUri": "../assets/images/sitti.png",
+        "name": "Sitti",
+        "distance": "0.0",
+        "category": "Middle Eastern",
+        "rating": ""
+    },
+    {
+        "imageUri": "../assets/images/ajisai.png",
+        "name": "Ajisai",
+        "distance": "0.0",
+        "category": "Japaneae, Sushi Bars",
+        "rating": ""
+    }
+]
