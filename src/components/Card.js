@@ -7,6 +7,7 @@ import {
     PanResponder,
     Animated,
     Dimensions,
+    Linking,
 } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -41,7 +42,7 @@ export default class Card extends Component {
 
     render() {
 
-        const { name, categories, rating, image_url } = this.props.profile;
+        const { name, categories, rating, image_url, url } = this.props.profile;
 
         const rotateCard = this.pan.x.interpolate({
             inputRange: [-200, 0, 200],
@@ -88,6 +89,9 @@ export default class Card extends Component {
                     <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
                     <View style={styles.restaurauntReview}>
                         {starRating()}
+                        <Text style={styles.info} onPress={() => Linking.openURL(url)}>
+                            <Image style={styles.infoLink} source={require('../assets/images/info.png')} />
+                        </Text>
                     </View>
                 </View>
             </Animated.View>
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
     cardContainer: {
         position: "absolute",
         width: width * 0.95,
-        height: height * 0.85,
+        height: height * 0.80,
         backgroundColor: 'white',
         borderWidth: 1,
         borderColor: 'lightgrey',
@@ -118,38 +122,44 @@ const styles = StyleSheet.create({
     cardImage: {
         flex: 1,
         width: width * 0.895,
+        height: .70,
     },
     cardDetails: {
         margin: 10,
-        // marginBottom: -150,
     },
     restaurantDetails: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 10,
     },
     restaurantTitle: {
         fontSize: 20,
-        marginTop: 12,
-        width: '50%',
+        fontWeight: '600',
+        width: '70%',
+        color: 'grey',
+        marginBottom: 10,
     },
     restaurantDistance: {
         fontSize: 18,
-        color: '#333333',
-        marginTop: 15,
+        fontWeight: '300',
+        marginTop: 4,
+        color: 'grey',
     },
     restaurantCategory: {
         fontSize: 15,
-        color: 'darkgrey',
         marginBottom: 10,
+        color: 'grey',
     },
     restaurauntReview: {
-        width: width * .50,
-        height: height * .25,
-        marginBottom: -150,
+        justifyContent: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
     stars: {
-        width: '50%',
-        height: '10%',
-    }
+        width: '30%',
+        height: '60%',
+    },
+    infoLink: {
+        width: 25,
+        height: 25,
+    },
 });
