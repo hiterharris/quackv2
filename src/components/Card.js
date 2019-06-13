@@ -39,6 +39,7 @@ export default class Card extends Component {
     }
 
     render() {
+        const { name, id, category, distance, rating, image } = this.props.data;
         const rotateCard = this.pan.x.interpolate({
             inputRange: [-200, 0, 200],
             outputRange: ['10deg', '0deg', '-10deg'],
@@ -58,14 +59,14 @@ export default class Card extends Component {
                 style={[styles.cardContainer, animatedStyle]}>
                 <Image
                     style={styles.cardImage}
-                    source={require('../assets/images/sitti.png')}
+                    source={{ uri: image }}
                 />
                 <View style={styles.cardDetails}>
                     <View style={styles.restaurantDetails}>
-                        <Text style={styles.restaurantTitle}>Sitti</Text>
-                        <Text style={styles.restaurantDistance}>0.0 miles</Text>
+                        <Text style={styles.restaurantTitle}>{name}</Text>
+                        <Text style={styles.restaurantDistance}>{distance} miles</Text>
                     </View>
-                    <Text style={styles.restaurantCategory}>Middle Eastern</Text>
+                    <Text style={styles.restaurantCategory}>{category}</Text>
                 </View>
             </Animated.View>
         );
