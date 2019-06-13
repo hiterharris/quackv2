@@ -6,13 +6,14 @@ import {
 } from 'react-native';
 
 import Card from './src/components/Card';
+import Header from './src/components/Header';
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.appContainer}>
         <View style={styles.headerContainer}>
-
+          <Header />
         </View>
         <View style={styles.profileContainer}>
           <Card />
