@@ -23,7 +23,17 @@ export default class App extends Component {
   }
 
   render() {
+
     const { profileIndex } = this.state;
+    const profileList = profiles.slice(profileIndex, profileIndex + 5).reverse().map((profile, i) => {
+      return (
+        <Card
+          profile={profile}
+          key={profile.id}
+          onSwipeOff={this.nextCard}
+        />
+      );
+    });
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.appContainer}>
@@ -31,15 +41,7 @@ export default class App extends Component {
             <Header />
           </View>
           <View style={styles.profileWrapper}>
-            {profiles.slice(profileIndex, profileIndex + 3).reverse().map((profile, i) => {
-              return (
-                <Card
-                  profile={profile}
-                  key={profile.id}
-                  onSwipeOff={this.nextCard}
-                />
-              );
-            })}
+            {profileList}
           </View>
         </View>
       </SafeAreaView>
