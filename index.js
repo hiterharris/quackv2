@@ -13,5 +13,4 @@ client.search(searchRequest).then(response => {
     console.log(e);
 });
 
-// cd src/assets/data
 // node index.js

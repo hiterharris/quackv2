@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   Dimensions,
 } from 'react-native';
+import shuffle from 'shuffle-array';
 import Card from './src/components/Card';
 import Header from './src/components/Header';
 import profiles from './src/assets/data/profiles.json';
@@ -25,7 +26,8 @@ export default class App extends Component {
   render() {
 
     const { profileIndex } = this.state;
-    const profileList = profiles.slice(profileIndex, profileIndex + 5).reverse().map((profile, i) => {
+    const randomList = profiles.sort(function (a, b) { return 0.5 - Math.random() });
+    const profileList = randomList.slice(profileIndex, profileIndex + 3).map((profile, i) => {
       return (
         <Card
           profile={profile}
