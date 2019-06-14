@@ -6,7 +6,6 @@ import {
   SafeAreaView,
   Dimensions,
 } from 'react-native';
-import shuffle from 'shuffle-array';
 import Card from './src/components/Card';
 import Header from './src/components/Header';
 import profiles from './src/assets/data/profiles.json';
@@ -24,18 +23,7 @@ export default class App extends Component {
   }
 
   render() {
-
     const { profileIndex } = this.state;
-    const randomList = profiles.sort(function (a, b) { return 0.5 - Math.random() });
-    const profileList = randomList.slice(profileIndex, profileIndex + 3).map((profile, i) => {
-      return (
-        <Card
-          profile={profile}
-          key={profile.id}
-          onSwipeOff={this.nextCard}
-        />
-      );
-    });
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.appContainer}>
@@ -43,7 +31,15 @@ export default class App extends Component {
             <Header />
           </View>
           <View style={styles.profileWrapper}>
-            {profileList}
+            {profiles.slice(profileIndex, profileIndex + 3).reverse().map((profile, i) => {
+              return (
+                <Card
+                  profile={profile}
+                  key={profile.id}
+                  onSwipeOff={this.nextCard}
+                />
+              );
+            })}
           </View>
         </View>
       </SafeAreaView>
