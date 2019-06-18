@@ -84,15 +84,12 @@ export default class Card extends Component {
                 <View style={styles.cardDetails}>
                     <View style={styles.restaurantDetails}>
                         <Text style={styles.restaurantTitle}>{name}</Text>
+                        <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
                         <Text style={styles.restaurantDistance}>0.0 miles</Text>
                     </View>
-                    <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
-                    <View style={styles.restaurauntReview}>
-                        {starRating()}
-                        <Text style={styles.info} onPress={() => Linking.openURL(url)}>
-                            <Image style={styles.infoLink} source={require('../assets/images/info.png')} />
-                        </Text>
-                    </View>
+                    <Text style={styles.info} onPress={() => Linking.openURL(url)}>
+                        <Image style={styles.infoImage} source={require('../assets/images/info-icon.png')} />
+                    </Text>
                 </View>
             </Animated.View>
         );
@@ -101,14 +98,14 @@ export default class Card extends Component {
 
 const styles = StyleSheet.create({
     cardContainer: {
-        position: "absolute",
-        width: width * 0.95,
-        height: height * 0.80,
+        position: 'absolute',
+        width: width * 0.90,
+        height: height * 0.70,
         backgroundColor: 'white',
         borderWidth: 1,
         borderColor: 'lightgrey',
         borderRadius: 8,
-        margin: 10,
+        margin: 18,
         padding: 10,
         shadowColor: 'lightgrey',
         shadowOffset: {
@@ -120,45 +117,39 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     cardImage: {
-        flex: 1,
+        position: 'absolute',
         width: width * 0.895,
-        height: .70,
+        height: height * .70,
     },
     cardDetails: {
-        margin: 10,
-    },
-    restaurantDetails: {
+        top: height * 0.5,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     restaurantTitle: {
-        fontSize: 20,
+        fontSize: 24,
         fontWeight: '600',
-        width: '70%',
-        color: 'grey',
-        marginBottom: 10,
+        width: width * .75,
+        color: '#FFFFFF',
     },
     restaurantDistance: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: '300',
-        marginTop: 4,
-        color: 'grey',
+        color: '#FFFFFF',
     },
     restaurantCategory: {
-        fontSize: 15,
-        marginBottom: 10,
-        color: 'grey',
+        fontSize: 18,
+        color: '#FFFFFF',
     },
     restaurauntReview: {
         justifyContent: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
-    stars: {
-        width: '30%',
-        height: '60%',
+    info: {
+        marginTop: 5,
     },
-    infoLink: {
+    infoImage: {
         width: 25,
         height: 25,
     },

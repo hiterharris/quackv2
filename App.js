@@ -31,7 +31,7 @@ export default class App extends Component {
             <Header />
           </View>
           <View style={styles.profileWrapper}>
-            {profiles.slice(profileIndex, profileIndex + 3).reverse().map((profile, i) => {
+            {profiles.slice(profileIndex, profileIndex + 5).reverse().map((profile, i) => {
               return (
                 <Card
                   profile={profile}
