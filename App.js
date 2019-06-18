@@ -6,6 +6,8 @@ import {
   Dimensions,
 } from 'react-native';
 import Swiper from './src/components/Swiper';
+import SignIn from './src/components/SignIn';
+
 
 export default class App extends Component {
   render() {
