@@ -3,21 +3,34 @@ import {
   StyleSheet,
   Text,
   View,
-  Dimensions,
+  Button,
 } from 'react-native';
-import Swiper from './src/components/Swiper';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+
 import Home from './src/components/Home';
+import Swiper from './src/components/Swiper';
+import Header from './src/components/Header';
 
-
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <View style={styles.appContainer}>
+        <Home />
         <Swiper />
       </View>
     );
   }
 }
+
+const AppNavigator = createStackNavigator(
+  {
+    Home: Home,
+    Swiper: Swiper,
+  },
+  {
+    initialRouteName: "Home",
+  },
+);
 
 const styles = StyleSheet.create({
   appContainer: {
@@ -26,3 +39,5 @@ const styles = StyleSheet.create({
     fontFamily: 'Avenir',
   }
 });
+
+export default createAppContainer(AppNavigator);

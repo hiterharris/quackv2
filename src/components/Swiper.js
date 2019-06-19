@@ -5,15 +5,23 @@ import {
     View,
     SafeAreaView,
     Dimensions,
+    Button,
 } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+
 import Cardv1 from '../componentsv1/Cardv1';
 import Card from './Card';
 import Header from './Header';
 import profiles from '../assets/data/profiles.json';
+import Home from './Home';
+
 
 const { width, height } = Dimensions.get('window');
 
 export default class Swiper extends Component {
+    static navigationOptions = {
+        headerTitle: <Header />,
+    };
 
     state = {
         profileIndex: 0,
@@ -28,9 +36,9 @@ export default class Swiper extends Component {
         return (
             <SafeAreaView style={styles.safeArea}>
                 <View style={styles.appContainer}>
-                    <View style={styles.headerWrapper}>
+                    {/* <View style={styles.headerWrapper}>
                         <Header />
-                    </View>
+                    </View> */}
                     <View style={styles.profileWrapper}>
                         {profiles.slice(profileIndex, profileIndex + 5).reverse().map((profile, i) => {
                             return (
