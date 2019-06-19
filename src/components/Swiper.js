@@ -6,6 +6,7 @@ import {
     SafeAreaView,
     Dimensions,
 } from 'react-native';
+import Cardv1 from '../componentsv1/Cardv1';
 import Card from './Card';
 import Header from './Header';
 import profiles from '../assets/data/profiles.json';
