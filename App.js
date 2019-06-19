@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
+import SignIn from './src/components/SignIn';
 import Home from './src/components/Home';
 import Swiper from './src/components/Swiper';
 import Header from './src/components/Header';
@@ -15,8 +16,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.appContainer}>
-        <Home />
-        <Swiper />
+
       </View>
     );
   }
@@ -24,11 +24,12 @@ class App extends Component {
 
 const AppNavigator = createStackNavigator(
   {
+    SignIn: SignIn,
     Home: Home,
     Swiper: Swiper,
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "SignIn",
   },
 );
 

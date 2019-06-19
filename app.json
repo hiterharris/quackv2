@@ -25,6 +25,16 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "expo": {
+      "ios": {
+        "bundleIdentifier": "quack.expo.googlesignin",
+        "config": {
+          "googleSignIn": {
+            "reservedClientId": "com.googleusercontent.apps.157508921688-t0aud0i3u1d7cre58b3j3uc2fopsh2qn"
+          }
+        }
+      }
     }
   }
 }
