@@ -19,12 +19,12 @@ async function logIn() {
         });
         if (type === 'success') {
             const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
-            Alert.alert('Logged in!', `Hi ${(await response.json()).name}!`);
+            Alert.alert('Logged in!');
         } else {
             type === 'cancel'
         }
     } catch ({ message }) {
-        alert(`Facebook Login Error: ${message}`);
+        alert('Facebook Login Error');
     }
 }
 
