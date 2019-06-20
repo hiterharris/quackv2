@@ -9,7 +9,6 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Header from './Header';
 import GoogleSignIn from './GoogleSignIn';
 import FacebookSignIn from './FacebookSignIn';
-import LocationAPI from './Location';
 
 export default class Home extends Component {
     static navigationOptions = {
@@ -25,10 +24,6 @@ export default class Home extends Component {
                 />
                 <GoogleSignIn />
                 <FacebookSignIn />
-                <Button
-                    title="Location"
-                    onPress={() => this.props.navigation.navigate('Location')}
-                />
             </View>
         );
     }

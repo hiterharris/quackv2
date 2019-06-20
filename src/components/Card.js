@@ -10,6 +10,7 @@ import {
     Linking,
 } from 'react-native';
 import profiles from '../assets/data/profiles.json';
+import LocationAPI from './Location';
 
 const { width, height } = Dimensions.get('window');
 
@@ -40,7 +41,7 @@ export default class Card extends Component {
         });
     }
     render() {
-        const { name, categories, rating, image_url, url } = this.props.profile;
+        const { name, categories, rating, image_url, url, coordinates } = this.props.profile;
         const rotateCard = this.pan.x.interpolate({
             inputRange: [-200, 0, 200],
             outputRange: ['10deg', '0deg', '-10deg'],
@@ -52,6 +53,7 @@ export default class Card extends Component {
                 { rotate: rotateCard },
             ],
         }
+        // const coordinates = profiles[0].coordinates;
         return (
             <Animated.View
                 {...this.cardPanResponder.panHandlers}
@@ -64,7 +66,9 @@ export default class Card extends Component {
                     <View>
                         <Text style={styles.restaurantTitle}>{name}</Text>
                         <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
-                        <Text style={styles.restaurantDistance}>0.0 miles</Text>
+                        <Text style={styles.restaurantDistance}>Restaurant Longitude: {coordinates.longitude}</Text>
+                        <Text style={styles.restaurantDistance}>Restaurant Latitude:{coordinates.latitude}</Text>
+                        <LocationAPI />
                     </View>
                     <Text style={styles.info} onPress={() => Linking.openURL(url)}>
                         <Image style={styles.infoImage} source={require('../assets/images/info-icon.png')} />

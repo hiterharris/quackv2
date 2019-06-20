@@ -49,8 +49,6 @@ export default class LocationAPI extends Component {
             <View>
                 <Text style={styles.location}>My Longitude: {longitude}</Text>
                 <Text style={styles.location}>My Latitude: {latitude}</Text>
-                <Text style={styles.location}>Restaurant Longitude: {coordinates.longitude}</Text>
-                <Text style={styles.location}>Restaurant Latitude: {coordinates.latitude}</Text>
             </View>
         );
     }
@@ -58,6 +56,7 @@ export default class LocationAPI extends Component {
 
 const styles = StyleSheet.create({
     location: {
-        fontSize: 24,
+        fontSize: 18,
+        color: 'white',
     }
 });
