@@ -59,6 +59,5 @@ export default class LocationAPI extends Component {
 const styles = StyleSheet.create({
     location: {
         fontSize: 24,
-        // color: 'blue',
     }
 });
