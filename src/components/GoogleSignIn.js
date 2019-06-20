@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { View, Button } from 'react-native';
+import {
+    View,
+    StyleSheet,
+    Image,
+    TouchableOpacity
+} from 'react-native';
 import { Google } from 'expo';
 
 async function logIn() {
@@ -22,11 +27,28 @@ export default class GoogleSignIn extends Component {
     render() {
         return (
             <View>
-                <Button
-                    title={'Sign In with Google'}
-                    onPress={() => logIn()}
-                />
+                <TouchableOpacity style={styles.googleSignIn} onPress={() => logIn()}>
+                    <Image style={styles.googleButton} source={require('../assets/images/google-login.png')} />
+                </TouchableOpacity>
             </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    googleSignIn: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    googleButton: {
+        width: 175,
+        height: 35,
+        borderRadius: 5,
+    },
+});

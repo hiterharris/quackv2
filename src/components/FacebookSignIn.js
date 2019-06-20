@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {
     View,
-    Button
+    Image,
+    TouchableOpacity,
+    StyleSheet,
 } from 'react-native';
 import * as Facebook from 'expo-facebook';
 
@@ -30,11 +32,27 @@ export default class FaceBookSignIn extends Component {
     render() {
         return (
             <View>
-                <Button
-                    title={'Sign In with Facebook'}
-                    onPress={() => logIn()}
-                />
+                <TouchableOpacity style={styles.fbSignIn} onPress={() => logIn()}>
+                    <Image style={styles.fbButton} source={require('../assets/images/facebook-login.png')} />
+                </TouchableOpacity>
             </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    fbSignIn: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    fbButton: {
+        width: 200,
+        height: 50,
+    },
+});
