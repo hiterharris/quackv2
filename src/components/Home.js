@@ -7,6 +7,9 @@ import {
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Header from './Header';
+import GmailSignIn from './GoogleSignIn';
+import FacebookSignIn from './FacebookSignIn';
+
 
 export default class Home extends Component {
     static navigationOptions = {
@@ -20,7 +23,9 @@ export default class Home extends Component {
                     title="Start Swiping!"
                     onPress={() => this.props.navigation.navigate('Swiper')}
                 />
-            </View>
+                <GmailSignIn />
+                <FacebookSignIn />
+            </View >
         );
     }
 }

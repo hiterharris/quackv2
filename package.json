@@ -10,6 +10,7 @@
   "dependencies": {
     "expo": "^33.0.6",
     "expo-app-auth": "^5.0.1",
+    "expo-facebook": "^5.0.1",
     "expo-google-sign-in": "^5.0.1",
     "expo-module-scripts": "^1.0.0",
     "react": "16.8.3",
