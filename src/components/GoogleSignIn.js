@@ -1,6 +1,5 @@
-
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { View, Button } from 'react-native';
 import { Google } from 'expo';
 
 async function logIn() {
@@ -22,7 +21,7 @@ async function logIn() {
 export default class GoogleSignIn extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <View>
                 <Button
                     title={'Sign In with Google'}
                     onPress={() => logIn()}
@@ -31,8 +30,3 @@ export default class GoogleSignIn extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-    },
-})

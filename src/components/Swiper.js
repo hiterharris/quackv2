@@ -1,65 +1,47 @@
 import React, { Component } from 'react';
 import {
     StyleSheet,
-    Text,
     View,
-    SafeAreaView,
-    Dimensions,
-    Button,
 } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-
-import Cardv1 from '../componentsv1/Cardv1';
 import Card from './Card';
 import Header from './Header';
 import profiles from '../assets/data/profiles.json';
 import Home from './Home';
 
-
-const { width, height } = Dimensions.get('window');
-
 export default class Swiper extends Component {
-    static navigationOptions = {
-        headerTitle: <Header />,
-    };
-
-    state = {
-        profileIndex: 0,
+    constructor(props) {
+        super(props);
+        this.state = {
+            profileIndex: 0,
+        }
     }
-
     nextCard = () => {
         this.setState({ profileIndex: this.state.profileIndex + 1 })
     }
-
+    static navigationOptions = {
+        headerTitle: <Header />,
+    };
     render() {
         const { profileIndex } = this.state;
         return (
-            <SafeAreaView style={styles.safeArea}>
-                <View style={styles.appContainer}>
-                    {/* <View style={styles.headerWrapper}>
-                        <Header />
-                    </View> */}
-                    <View style={styles.profileWrapper}>
-                        {profiles.slice(profileIndex, profileIndex + 5).reverse().map((profile, i) => {
-                            return (
-                                <Card
-                                    profile={profile}
-                                    key={profile.id}
-                                    onSwipeOff={this.nextCard}
-                                />
-                            );
-                        })}
-                    </View>
+            <View style={styles.appContainer}>
+                <View style={styles.profileWrapper}>
+                    {profiles.slice(profileIndex, profileIndex + 5).reverse().map((profile, i) => {
+                        return (
+                            <Card
+                                profile={profile}
+                                key={profile.id}
+                                onSwipeOff={this.nextCard}
+                            />
+                        );
+                    })}
                 </View>
-            </SafeAreaView>
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    safeArea: {
-        flex: 1,
-    },
     appContainer: {
         flex: 1,
         backgroundColor: 'white',

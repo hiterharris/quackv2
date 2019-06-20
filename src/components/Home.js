@@ -10,7 +10,6 @@ import Header from './Header';
 import GoogleSignIn from './GoogleSignIn';
 import FacebookSignIn from './FacebookSignIn';
 
-
 export default class Home extends Component {
     static navigationOptions = {
         headerTitle: <Header />,
@@ -25,7 +24,7 @@ export default class Home extends Component {
                 />
                 <GoogleSignIn />
                 <FacebookSignIn />
-            </View >
+            </View>
         );
     }
 }

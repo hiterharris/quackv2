@@ -13,7 +13,6 @@ import {
 const { width, height } = Dimensions.get('window');
 
 export default class Card extends Component {
-
     componentWillMount() {
         this.pan = new Animated.ValueXY();
         this.cardPanResponder = PanResponder.create({
@@ -39,16 +38,12 @@ export default class Card extends Component {
             },
         });
     }
-
     render() {
-
         const { name, categories, rating, image_url, url } = this.props.profile;
-
         const rotateCard = this.pan.x.interpolate({
             inputRange: [-200, 0, 200],
             outputRange: ['10deg', '0deg', '-10deg'],
         });
-
         const animatedStyle = {
             transform: [
                 { translateX: this.pan.x },
@@ -56,33 +51,16 @@ export default class Card extends Component {
                 { rotate: rotateCard },
             ],
         }
-
-        const starRating = () => {
-            if (rating === 4.0) {
-                return (
-                    <Image style={styles.stars} source={require('../assets/images/4-stars.png')} />
-                );
-            } else if (rating === 4.5) {
-                return (
-                    <Image style={styles.stars} source={require('../assets/images/4.5-stars.png')} />
-                );
-            } else {
-                return (
-                    <Image style={styles.stars} source={require('../assets/images/5-stars.png')} />
-                );
-            }
-        }
-
         return (
             <Animated.View
                 {...this.cardPanResponder.panHandlers}
                 style={[styles.cardContainer, animatedStyle]} >
                 <Image
-                    style={styles.cardImage}
+                    style={styles.restaurantImage}
                     source={{ uri: image_url }}
                 />
-                <View style={styles.cardDetails}>
-                    <View style={styles.restaurantDetails}>
+                <View style={styles.restaurantDetails}>
+                    <View>
                         <Text style={styles.restaurantTitle}>{name}</Text>
                         <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
                         <Text style={styles.restaurantDistance}>0.0 miles</Text>
@@ -116,12 +94,12 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
     },
-    cardImage: {
+    restaurantImage: {
         position: 'absolute',
         width: width * 0.895,
         height: height * .70,
     },
-    cardDetails: {
+    restaurantDetails: {
         top: height * 0.5,
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -140,11 +118,6 @@ const styles = StyleSheet.create({
     restaurantCategory: {
         fontSize: 18,
         color: '#FFFFFF',
-    },
-    restaurauntReview: {
-        justifyContent: 'center',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
     },
     info: {
         marginTop: 5,

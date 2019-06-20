@@ -1,6 +1,8 @@
-
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import {
+    View,
+    Button
+} from 'react-native';
 import * as Facebook from 'expo-facebook';
 
 async function logIn() {
@@ -8,9 +10,7 @@ async function logIn() {
         const {
             type,
             token,
-            expires,
             permissions,
-            declinedPermissions,
         } = await Facebook.logInWithReadPermissionsAsync('2268190433218439', {
             permissions: ['public_profile'],
             token: '2268190433218439',
@@ -29,7 +29,7 @@ async function logIn() {
 export default class FaceBookSignIn extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <View>
                 <Button
                     title={'Sign In with Facebook'}
                     onPress={() => logIn()}
@@ -38,8 +38,3 @@ export default class FaceBookSignIn extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-    },
-})
