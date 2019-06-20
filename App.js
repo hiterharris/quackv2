@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
   Button,
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
@@ -19,13 +16,5 @@ const AppNavigator = createStackNavigator(
     initialRouteName: "Home",
   },
 );
-
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1,
-    backgroundColor: 'white',
-    fontFamily: 'Avenir',
-  }
-});
 
 export default createAppContainer(AppNavigator);

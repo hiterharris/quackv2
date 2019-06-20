@@ -15,11 +15,11 @@ async function logIn() {
             type === 'cancel'
         }
     } catch ({ message }) {
-        alert(`Facebook Login Error: ${message}`);
+        alert(`Google Login Error: ${message}`);
     }
 }
 
-export default class GmailSignIn extends Component {
+export default class GoogleSignIn extends Component {
     render() {
         return (
             <View style={styles.container}>
