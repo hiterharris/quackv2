@@ -16,6 +16,7 @@ async function logIn() {
         } = await Facebook.logInWithReadPermissionsAsync('2268190433218439', {
             permissions: ['public_profile'],
             token: '2268190433218439',
+            auth_type: 'reauthenticate',
         });
         if (type === 'success') {
             const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
+        // margin: 10,
     },
     fbButton: {
         width: 200,

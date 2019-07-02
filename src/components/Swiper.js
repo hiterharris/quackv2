@@ -6,7 +6,6 @@ import {
 import Card from './Card';
 import Header from './Header';
 import profiles from '../assets/data/profiles.json';
-import Home from './Home';
 
 export default class Swiper extends Component {
     constructor(props) {

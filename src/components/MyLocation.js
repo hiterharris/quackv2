@@ -3,7 +3,7 @@ import { Platform, Text, View, StyleSheet, } from 'react-native';
 import { Constants, Location, Permissions } from 'expo';
 import profiles from '../assets/data/profiles.json';
 
-export default class LocationAPI extends Component {
+export default class MyLocation extends Component {
     state = {
         location: null,
         errorMessage: null,

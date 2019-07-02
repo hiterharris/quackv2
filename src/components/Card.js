@@ -10,7 +10,8 @@ import {
     Linking,
 } from 'react-native';
 import profiles from '../assets/data/profiles.json';
-import LocationAPI from './Location';
+import MyLocation from './MyLocation';
+import Distance from './Distance';
 
 const { width, height } = Dimensions.get('window');
 
@@ -53,7 +54,7 @@ export default class Card extends Component {
                 { rotate: rotateCard },
             ],
         }
-        // const coordinates = profiles[0].coordinates;
+
         return (
             <Animated.View
                 {...this.cardPanResponder.panHandlers}
@@ -66,9 +67,13 @@ export default class Card extends Component {
                     <View>
                         <Text style={styles.restaurantTitle}>{name}</Text>
                         <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
-                        <Text style={styles.restaurantDistance}>Restaurant Longitude: {coordinates.longitude}</Text>
-                        <Text style={styles.restaurantDistance}>Restaurant Latitude:{coordinates.latitude}</Text>
-                        <LocationAPI />
+                        <Distance />
+
+                        {/* {TODO: Location data for distance} */}
+                        {/* <Text style={styles.restaurantDistance}>Restaurant Longitude: {coordinates.longitude}</Text> */}
+                        {/* <Text style={styles.restaurantDistance}>Restaurant Latitude:{coordinates.latitude}</Text> */}
+                        {/* <MyLocation /> */}
+
                     </View>
                     <Text style={styles.info} onPress={() => Linking.openURL(url)}>
                         <Image style={styles.infoImage} source={require('../assets/images/info-icon.png')} />
