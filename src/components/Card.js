@@ -42,7 +42,6 @@ export default class Card extends Component {
         });
     }
     render() {
-        const { name, categories, rating, image_url, url, coordinates } = this.props.profile;
         const rotateCard = this.pan.x.interpolate({
             inputRange: [-200, 0, 200],
             outputRange: ['10deg', '0deg', '-10deg'],
@@ -54,7 +53,7 @@ export default class Card extends Component {
                 { rotate: rotateCard },
             ],
         }
-
+        const { name, categories, image_url, url, coordinates } = this.props.profile;
         return (
             <Animated.View
                 {...this.cardPanResponder.panHandlers}
