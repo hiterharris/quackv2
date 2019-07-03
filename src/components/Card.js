@@ -63,8 +63,8 @@ export default class Card extends Component {
                     style={styles.restaurantImage}
                     source={{ uri: image_url }}
                 />
-                <View style={styles.restaurantDetails}>
-                    <View>
+                <View style={styles.restaurantDetailsContainer}>
+                    <View style={styles.restaurantDetails}>
                         <Text style={styles.restaurantTitle}>{name}</Text>
                         <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
                         <Distance style={styles.distance} />
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     cardContainer: {
         position: 'absolute',
         width: width * 0.90,
-        height: height * 0.70,
+        height: height * 0.80,
         backgroundColor: 'white',
         borderWidth: 1,
         borderColor: 'lightgrey',
@@ -107,12 +107,15 @@ const styles = StyleSheet.create({
     restaurantImage: {
         position: 'absolute',
         width: width * 0.895,
-        height: height * .70,
+        height: height * .80,
     },
-    restaurantDetails: {
+    restaurantDetailsContainer: {
         top: height * 0.5,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginTop: 75,
+    },
+    restaurantDetails: {
     },
     restaurantTitle: {
         fontSize: 24,

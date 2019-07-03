@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     homeBackground: {
         position: 'absolute',
         width: width,
-        height: height,
+        height: height + 8,
     },
     swiperButton: {
         shadowColor: 'lightgrey',

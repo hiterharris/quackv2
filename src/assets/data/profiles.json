@@ -50,7 +50,7 @@
     {
         "id": "RAh9WCQAuocM7hYM5_6tnw",
         "alias": "the-cowfish-sushi-burger-bar-charlotte",
-        "name": "The Cowfish Sushi Burger Bar",
+        "name": "The Cowfish",
         "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/DTOiEUO3w1wu8OrNxYVP_g/o.jpg",
         "is_closed": false,
         "url": "https://www.yelp.com/biz/the-cowfish-sushi-burger-bar-charlotte?adjust_creative=PdbtA-uZkuhueNaj3O4ZHg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=PdbtA-uZkuhueNaj3O4ZHg",
@@ -139,56 +139,9 @@
         "distance": 1971.1365091818875
     },
     {
-        "id": "gG9z6zr_49LocyCTvSFg0w",
-        "alias": "amélies-french-bakery-and-café-charlotte-11",
-        "name": "Amélie's French Bakery & Café",
-        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/jxN-dN4XinNN_xRgj5aisw/o.jpg",
-        "is_closed": false,
-        "url": "https://www.yelp.com/biz/am%C3%A9lies-french-bakery-and-caf%C3%A9-charlotte-11?adjust_creative=PdbtA-uZkuhueNaj3O4ZHg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=PdbtA-uZkuhueNaj3O4ZHg",
-        "review_count": 1733,
-        "categories": [
-            {
-                "alias": "breakfast_brunch",
-                "title": "Breakfast & Brunch"
-            },
-            {
-                "alias": "cafes",
-                "title": "Cafes"
-            },
-            {
-                "alias": "cakeshop",
-                "title": "Patisserie/Cake Shop"
-            }
-        ],
-        "rating": 4,
-        "coordinates": {
-            "latitude": 35.241145,
-            "longitude": -80.812057
-        },
-        "transactions": [],
-        "price": "$$",
-        "location": {
-            "address1": "2424 N Davidson St",
-            "address2": "Ste 102",
-            "address3": "",
-            "city": "Charlotte",
-            "zip_code": "28205",
-            "country": "US",
-            "state": "NC",
-            "display_address": [
-                "2424 N Davidson St",
-                "Ste 102",
-                "Charlotte, NC 28205"
-            ]
-        },
-        "phone": "+17043761781",
-        "display_phone": "(704) 376-1781",
-        "distance": 5284.519290652392
-    },
-    {
         "id": "hggVnGwA5042-ABxqeJX-A",
         "alias": "good-food-on-montford-charlotte-2",
-        "name": "Good Food on Montford",
+        "name": "Good Food",
         "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/3Vi6OX47XuAeRvhDnbtkWw/o.jpg",
         "is_closed": false,
         "url": "https://www.yelp.com/biz/good-food-on-montford-charlotte-2?adjust_creative=PdbtA-uZkuhueNaj3O4ZHg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=PdbtA-uZkuhueNaj3O4ZHg",
@@ -1813,49 +1766,6 @@
         "phone": "+19198299999",
         "display_phone": "(919) 829-9999",
         "distance": 5272.9629404136585
-    },
-    {
-        "id": "9oylkV12-1YfbeoIZ1g-xw",
-        "alias": "the-cowfish-sushi-burger-bar-raleigh",
-        "name": "The Cowfish Sushi Burger Bar",
-        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/JT3-g_P9cSZhbJi9txNwAw/o.jpg",
-        "is_closed": false,
-        "url": "https://www.yelp.com/biz/the-cowfish-sushi-burger-bar-raleigh?adjust_creative=PdbtA-uZkuhueNaj3O4ZHg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=PdbtA-uZkuhueNaj3O4ZHg",
-        "review_count": 1377,
-        "categories": [
-            {
-                "alias": "sushi",
-                "title": "Sushi Bars"
-            },
-            {
-                "alias": "burgers",
-                "title": "Burgers"
-            }
-        ],
-        "rating": 4.5,
-        "coordinates": {
-            "latitude": 35.837258785475,
-            "longitude": -78.6401524459807
-        },
-        "transactions": [],
-        "price": "$$",
-        "location": {
-            "address1": "4208 Six Forks Rd",
-            "address2": "Ste 100",
-            "address3": "",
-            "city": "Raleigh",
-            "zip_code": "27609",
-            "country": "US",
-            "state": "NC",
-            "display_address": [
-                "4208 Six Forks Rd",
-                "Ste 100",
-                "Raleigh, NC 27609"
-            ]
-        },
-        "phone": "+19197840400",
-        "display_phone": "(919) 784-0400",
-        "distance": 1849.37127073363
     },
     {
         "id": "06ogfB9kha-2Wi9KlDa7ag",
