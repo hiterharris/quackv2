@@ -6,10 +6,13 @@ import {
     Button,
     TouchableOpacity,
     Image,
+    Dimensions,
 } from 'react-native';
 import Header from './Header';
 import GoogleSignIn from './GoogleSignIn';
 import FacebookSignIn from './FacebookSignIn';
+
+const { width, height } = Dimensions.get('window');
 
 export default class Home extends Component {
     static navigationOptions = {
@@ -18,8 +21,9 @@ export default class Home extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity style={styles.swiper} onPress={() => logIn()} onPress={() => this.props.navigation.navigate('Swiper')} >
-                    <Image style={styles.swiperButton} source={require('../assets/images/start-swiping.png')} />
+                <Image style={styles.homeBackground} source={require('../assets/images/home-background.png')} />
+                <TouchableOpacity style={styles.swiperButton} onPress={() => logIn()} onPress={() => this.props.navigation.navigate('Swiper')} >
+                    <Image style={styles.swiperButtonImage} source={require('../assets/images/start-swiping.png')} />
                 </TouchableOpacity>
                 <GoogleSignIn />
                 <FacebookSignIn />
@@ -35,7 +39,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 75,
     },
-    swiper: {
+    homeBackground: {
+        position: 'absolute',
+        width: width,
+        height: height,
+    },
+    swiperButton: {
         shadowColor: 'lightgrey',
         shadowOffset: {
             width: 0,
@@ -44,9 +53,10 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
+        margin: 20,
     },
-    swiperButton: {
-        width: 200,
-        height: 50,
+    swiperButtonImage: {
+        width: 300,
+        height: 90,
     },
 });

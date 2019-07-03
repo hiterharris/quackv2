@@ -67,7 +67,7 @@ export default class Card extends Component {
                     <View>
                         <Text style={styles.restaurantTitle}>{name}</Text>
                         <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
-                        <Distance />
+                        <Distance style={styles.distance} />
 
                         {/* {TODO: Location data for distance} */}
                         {/* <Text style={styles.restaurantDistance}>Restaurant Longitude: {coordinates.longitude}</Text> */}

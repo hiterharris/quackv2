@@ -34,7 +34,7 @@ export default class Distance extends Component {
     render() {
         return (
             <View>
-                <Text style={styles.distance}>Distance: miles</Text>
+                <Text style={styles.distance}>Distance: 2.2 miles</Text>
             </View>
         );
     }
