@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import profiles from '../assets/data/profiles.json';
 import MyLocation from './MyLocation';
-import Distance from './Distance';
 
 const { width, height } = Dimensions.get('window');
 
@@ -66,11 +65,9 @@ export default class Card extends Component {
                     <View style={styles.restaurantDetails}>
                         <Text style={styles.restaurantTitle}>{name}</Text>
                         <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
-                        <Distance style={styles.distance} />
+                        <Text style={styles.restaurantDistance}>Distance: 2.4 miles</Text>
 
                         {/* {TODO: Location data for distance} */}
-                        {/* <Text style={styles.restaurantDistance}>Restaurant Longitude: {coordinates.longitude}</Text> */}
-                        {/* <Text style={styles.restaurantDistance}>Restaurant Latitude:{coordinates.latitude}</Text> */}
                         {/* <MyLocation /> */}
 
                     </View>
@@ -87,7 +84,7 @@ const styles = StyleSheet.create({
     cardContainer: {
         position: 'absolute',
         width: width * 0.90,
-        height: height * 0.80,
+        height: height * 0.70,
         backgroundColor: 'white',
         borderWidth: 1,
         borderColor: 'lightgrey',
@@ -106,13 +103,13 @@ const styles = StyleSheet.create({
     restaurantImage: {
         position: 'absolute',
         width: width * 0.895,
-        height: height * .80,
+        height: height * .70,
     },
     restaurantDetailsContainer: {
         top: height * 0.5,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 75,
+        marginTop: 50,
     },
     restaurantDetails: {
     },
@@ -130,6 +127,8 @@ const styles = StyleSheet.create({
     restaurantCategory: {
         fontSize: 18,
         color: '#FFFFFF',
+        marginTop: 5,
+        marginBottom: 5,
     },
     info: {
         marginTop: 5,

@@ -28,7 +28,7 @@ export default class GoogleSignIn extends Component {
         return (
             <View>
                 <TouchableOpacity style={styles.googleSignIn} onPress={() => logIn()}>
-                    <Image style={styles.googleButton} source={require('../assets/images/google-login.png')} />
+                    <Image style={styles.googleButton} source={require('../assets/images/google-signin.png')} />
                 </TouchableOpacity>
             </View>
         );
