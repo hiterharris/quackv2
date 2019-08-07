@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import {
     StyleSheet,
-    Text,
     View,
-    Button,
     TouchableOpacity,
     Image,
     Dimensions,
 } from 'react-native';
+import profiles from '../assets/data/profiles.json';
 import Header from './Header';
 import GoogleSignIn from './GoogleSignIn';
 import FacebookSignIn from './FacebookSignIn';
@@ -21,8 +20,8 @@ export default class Home extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Image style={styles.homeBackground} source={require('../assets/images/home-background.png')} />
-                <TouchableOpacity style={styles.swiperButton} onPress={() => logIn()} onPress={() => this.props.navigation.navigate('Swiper')} >
+                <Image style={styles.homeBackground} source={{ uri: profiles[0].image_url }} />
+                <TouchableOpacity style={styles.swiperButton} onPress={() => this.props.navigation.navigate('Swiper')} >
                     <Image style={styles.swiperButtonImage} source={require('../assets/images/start-swiping.png')} />
                 </TouchableOpacity>
                 <GoogleSignIn />

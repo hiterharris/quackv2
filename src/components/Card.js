@@ -8,6 +8,7 @@ import {
     Animated,
     Dimensions,
     Linking,
+    TouchableOpacity,
 } from 'react-native';
 import profiles from '../assets/data/profiles.json';
 import MyLocation from './MyLocation';
@@ -54,43 +55,53 @@ export default class Card extends Component {
         }
         const { name, categories, image_url, url, coordinates } = this.props.profile;
         return (
-            <Animated.View
-                {...this.cardPanResponder.panHandlers}
-                style={[styles.cardContainer, animatedStyle]} >
-                <Image
-                    style={styles.restaurantImage}
-                    source={{ uri: image_url }}
-                />
-                <View style={styles.restaurantDetailsContainer}>
-                    <View style={styles.restaurantDetails}>
-                        <Text style={styles.restaurantTitle}>{name}</Text>
-                        <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
-                        <Text style={styles.restaurantDistance}>Distance: 2.4 miles</Text>
-
-                        {/* {TODO: Location data for distance} */}
-                        {/* <MyLocation /> */}
-
+            <View style={styles.container}>
+                <Animated.View
+                    {...this.cardPanResponder.panHandlers}
+                    style={[styles.cardContainer, animatedStyle]} >
+                    <Image
+                        style={styles.restaurantImage}
+                        source={{ uri: image_url }}
+                    />
+                    <View style={styles.restaurantDetailsContainer}>
+                        <View style={styles.restaurantDetails}>
+                            <Text style={styles.restaurantTitle}>{name}</Text>
+                            <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
+                            <Text style={styles.restaurantDistance}>Distance: 0.0 miles</Text>
+                        </View>
+                        <Text style={styles.info} onPress={() => Linking.openURL(url)}>
+                            <Image style={styles.infoImage} source={require('../assets/images/info-icon.png')} />
+                        </Text>
                     </View>
-                    <Text style={styles.info} onPress={() => Linking.openURL(url)}>
-                        <Image style={styles.infoImage} source={require('../assets/images/info-icon.png')} />
-                    </Text>
+                </Animated.View>
+                <View style={styles.swipeButtons}>
+                    <TouchableOpacity style={styles.dislike} onPress={() => console.log('dislike')}>
+                        <Image source={require('../assets/images/dislike-button.png')} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.like} onPress={() => console.log('like')}>
+                        <Image source={require('../assets/images/like-button.png')} />
+                    </TouchableOpacity>
                 </View>
-            </Animated.View>
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    container: {
+        position: 'absolute',
+        backgroundColor: '#EFF3F7',
+        height: height,
+        width: width,
+    },
     cardContainer: {
         position: 'absolute',
-        width: width * 0.90,
-        height: height * 0.70,
-        backgroundColor: 'white',
+        width: width * 0.95,
+        height: height * .70,
         borderWidth: 1,
         borderColor: 'lightgrey',
         borderRadius: 8,
-        margin: 18,
-        padding: 10,
+        margin: 8,
         shadowColor: 'lightgrey',
         shadowOffset: {
             width: 0,
@@ -102,16 +113,17 @@ const styles = StyleSheet.create({
     },
     restaurantImage: {
         position: 'absolute',
-        width: width * 0.895,
+        width: width * 0.95,
         height: height * .70,
+        borderRadius: 8,
     },
     restaurantDetailsContainer: {
-        top: height * 0.5,
+        position: 'absolute',
+        top: height * .52,
+        width: width * 0.90,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 50,
-    },
-    restaurantDetails: {
+        margin: 10,
     },
     restaurantTitle: {
         fontSize: 24,
@@ -136,5 +148,21 @@ const styles = StyleSheet.create({
     infoImage: {
         width: 25,
         height: 25,
+    },
+    swipeButtons: {
+        flexDirection: 'row',
+        top: height * .70,
+        marginLeft: 60,
+        borderColor: 'lightgrey',
+        borderRadius: 8,
+        margin: 8,
+        shadowColor: 'lightgrey',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.50,
+        shadowRadius: 3.84,
+        elevation: 5,
     },
 });
