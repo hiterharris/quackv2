@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-    StyleSheet,
-    View,
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Card from './Card';
 import Header from './Header';
 import profiles from '../assets/data/profiles.json';
