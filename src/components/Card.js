@@ -9,8 +9,6 @@ import {
     Dimensions,
     Linking,
 } from 'react-native';
-import profiles from '../assets/data/profiles.json';
-import MyLocation from './MyLocation';
 
 const { width, height } = Dimensions.get('window');
 
