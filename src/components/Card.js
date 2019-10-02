@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     cardContainer: {
         position: 'absolute',
         width: width * 0.90,
-        height: height * 0.85,
+        height: height * 0.82,
         backgroundColor: 'white',
         borderWidth: 1,
         borderColor: 'lightgrey',
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     restaurantImage: {
         position: 'absolute',
         width: width * 0.90,
-        height: height * .85,
+        height: height * .82,
     },
     restaurantDetailsContainer: {
         top: height * 0.55,
