@@ -65,9 +65,9 @@ export default class Card extends Component {
                         <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
                         <Text style={styles.restaurantDistance}>Distance: 2.4 miles</Text>
                     </View>
-                    <Text style={styles.info} onPress={() => Linking.openURL(url)}>
+                    <View style={styles.info} onPress={() => Linking.openURL(url)}>
                         <Image style={styles.infoImage} source={require('../assets/images/info-icon.png')} />
-                    </Text>
+                    </View>
                 </View>
             </Animated.View>
         );
