@@ -25,4 +25,3 @@ You will need to get your own and place it in your `env.json`.  Follow the [Yelp
 
 ![Home Screen](src/assets/images/screenshots/home.png)
 ![Swipe Screen](src/assets/images/screenshots/swipe.png)
-
