@@ -23,5 +23,4 @@ You will need to get your own and place it in your `env.json`.  Follow the [Yelp
 
 ## UI
 
-(src/assets/images/screenshots/home.png)
-(src/assets/images/screenshots/swipe.png)
+![](src/assets/images/screenshots/swipe.png)
