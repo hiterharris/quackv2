@@ -20,3 +20,9 @@ You will need to get your own and place it in your `env.json`.  Follow the [Yelp
 **Step 2:** Assuming that you have [Node 10+](https://nodejs.org/en/download/) installed, you can use npm to install the Expo CLI: `npm install -g expo-cli`
 
 **Step 3:** Run Build for either iOS or Android run: `npm start` or `expo start`
+
+## UI
+
+![Home Screen](src/assets/images/screenshots/home.png)
+![Swipe Screen](src/assets/images/screenshots/swipe.png)
+
