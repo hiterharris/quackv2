@@ -10,12 +10,11 @@ import profiles from '../assets/data/profiles.json';
 import Header from './Header';
 import GoogleSignIn from './GoogleSignIn';
 import FacebookSignIn from './FacebookSignIn';
+import Data from './Data';
+
 import axios from 'axios';
-// import console = require('console');
 
 const { width, height } = Dimensions.get('window');
-
-const API_KEY = '4TwtB1xSvyHl5nDWqmOPj_3cHANyKsn8XhO2lBR2xdjRWs52PivbW-wdvQ92uWNIYR76VeQxXfSyh7jREVLe_HBd31tuPk08L5lIsHyEb449yLFbeGnPzbZGDaz_XHYx';
 
 axios.get('https://api.yelp.com/v3/businesses/search', {
     headers: {
@@ -28,7 +27,7 @@ axios.get('https://api.yelp.com/v3/businesses/search', {
 })
 .then(response => {
     console.log(response.data.businesses);
-    return response.data.businesses;
+    return response;
 })
 .catch((error) => {
     console.log ('error', error)
@@ -47,6 +46,7 @@ export default class Home extends Component {
                 </TouchableOpacity>
                 <GoogleSignIn />
                 <FacebookSignIn />
+                <Data />
             </View>
         );
     }
