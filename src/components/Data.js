@@ -20,8 +20,8 @@ export default function Data() {
         
         })
         .then(response => {
-            console.log(response.data.businesses);
-            setBusiness(response.data.businesses[0].name);
+            console.log(response);
+            setBusiness(response.data.businesses[0]);
         })
         .catch((error) => {
             console.log ('error', error)
@@ -30,7 +30,7 @@ export default function Data() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>{business}</Text>
+            <Text style={styles.text}>{business.name}</Text>
         </View>
     );
 }
