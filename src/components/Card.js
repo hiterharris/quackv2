@@ -13,6 +13,9 @@ import {
 const { width, height } = Dimensions.get('window');
 
 export default class Card extends Component {
+    constructor(props) {
+        super(props);
+    }
     componentWillMount() {
         this.pan = new Animated.ValueXY();
         this.cardPanResponder = PanResponder.create({
@@ -38,6 +41,7 @@ export default class Card extends Component {
             },
         });
     }
+    
     render() {
         const rotateCard = this.pan.x.interpolate({
             inputRange: [-200, 0, 200],

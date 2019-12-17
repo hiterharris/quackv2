@@ -10,7 +10,6 @@ import profiles from '../assets/data/profiles.json';
 import Header from './Header';
 import GoogleSignIn from './GoogleSignIn';
 import FacebookSignIn from './FacebookSignIn';
-import Data from './Data';
 
 const { width, height } = Dimensions.get('window');
 
@@ -27,7 +26,6 @@ export default class Home extends Component {
                 </TouchableOpacity>
                 <GoogleSignIn />
                 <FacebookSignIn />
-                <Data />
             </View>
         );
     }

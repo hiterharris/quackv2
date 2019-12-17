@@ -1,12 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {
-    View,
-    Text,
-    StyleSheet,
-} from 'react-native';
+import {useEffect, useState} from 'react';
 import axios from 'axios';
 
-export default function Data() {
     const [business, setBusiness] = useState([]);
 
     useEffect( () => {
@@ -20,25 +14,11 @@ export default function Data() {
         
         })
         .then(response => {
-            console.log(response);
-            setBusiness(response.data.businesses[0]);
+            setBusiness(response.json);
         })
         .catch((error) => {
             console.log ('error', error)
             })
     }, []);
 
-    return (
-        <View style={styles.container}>
-            <Text style={styles.text}>{business.name}</Text>
-        </View>
-    );
-}
-
-const styles = StyleSheet.create({
-    container: {
-    },
-    text: {
-        color: 'white',
-    }
-});
+    export default business;
