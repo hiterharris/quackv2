@@ -1,6 +1,11 @@
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {
+    View,
+    Text,
+} from 'react-native';
 import axios from 'axios';
 
+export default function Data() {
     const [business, setBusiness] = useState([]);
 
     useEffect( () => {
@@ -14,11 +19,17 @@ import axios from 'axios';
         
         })
         .then(response => {
-            setBusiness(response.json);
+            setBusiness(response.data.businesses[0]);
         })
         .catch((error) => {
             console.log ('error', error)
             })
     }, []);
 
-    export default business;
+    return (
+        <View>
+            <Text>{business.name}</Text>
+        </View>
+    );
+}
+

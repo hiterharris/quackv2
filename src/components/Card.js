@@ -54,7 +54,7 @@ export default class Card extends Component {
                 { rotate: rotateCard },
             ],
         }
-        const { name, categories, image_url, url, coordinates } = this.props.profile;
+        const { name, categories, image_url, url, rating, review_count } = this.props.profile;
         return (
             <Animated.View
                 {...this.cardPanResponder.panHandlers}
@@ -67,7 +67,7 @@ export default class Card extends Component {
                     <View style={styles.restaurantDetails}>
                         <Text style={styles.restaurantTitle}>{name}</Text>
                         <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
-                        <Text style={styles.restaurantDistance}>Distance: 2.4 miles</Text>
+                        <Text style={styles.restaurantRating}>Rating: {rating} ({review_count})</Text>
                     </View>
                     <View style={styles.info} onPress={() => Linking.openURL(url)}>
                         <Image style={styles.infoImage} source={require('../assets/images/info-icon.png')} />
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         width: width * .75,
         color: '#FFFFFF',
     },
-    restaurantDistance: {
+    restaurantRating: {
         fontSize: 20,
         fontWeight: '300',
         color: '#FFFFFF',

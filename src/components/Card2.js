@@ -41,7 +41,7 @@ export default function Data() {
         <View onSwipeOff={this.nextCard}>
             {business.slice(profileIndex, profileIndex + 5).reverse().map((restaurant, index) => {
                 return (
-                    <View style={styles.container} key={index}>
+                    <View style={styles.cardContainer} key={index}>
                         <Image
                             style={styles.restaurantImage}
                             source={{ uri: restaurant.image_url }}
