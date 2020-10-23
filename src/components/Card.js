@@ -8,6 +8,7 @@ import {
     Animated,
     Dimensions,
     Linking,
+    TouchableOpacity,
 } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -16,6 +17,7 @@ export default class Card extends Component {
     constructor(props) {
         super(props);
     }
+    
     componentWillMount() {
         this.pan = new Animated.ValueXY();
         this.cardPanResponder = PanResponder.create({
@@ -47,6 +49,7 @@ export default class Card extends Component {
             inputRange: [-200, 0, 200],
             outputRange: ['10deg', '0deg', '-10deg'],
         });
+
         const animatedStyle = {
             transform: [
                 { translateX: this.pan.x },
@@ -54,7 +57,9 @@ export default class Card extends Component {
                 { rotate: rotateCard },
             ],
         }
-        const { name, categories, image_url, url, rating, review_count } = this.props.profile;
+
+        const { name, categories, image_url, url, rating, review_count } = this.props.business;
+
         return (
             <Animated.View
                 {...this.cardPanResponder.panHandlers}
@@ -69,9 +74,9 @@ export default class Card extends Component {
                         <Text style={styles.restaurantCategory}>{categories[0].title}</Text>
                         <Text style={styles.restaurantRating}>Rating: {rating} ({review_count})</Text>
                     </View>
-                    <View style={styles.info} onPress={() => Linking.openURL(url)}>
+                    <TouchableOpacity style={styles.info} onPress={() => Linking.openURL(url)}>
                         <Image style={styles.infoImage} source={require('../assets/images/info-icon.png')} />
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </Animated.View>
         );
@@ -107,7 +112,7 @@ const styles = StyleSheet.create({
         top: height * 0.55,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 50,
+        marginTop: 40,
     },
     restaurantDetails: {
     },

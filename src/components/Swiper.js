@@ -5,31 +5,54 @@ import {
 } from 'react-native';
 import Card from './Card';
 import Header from './Header';
-import profiles from '../assets/data/profiles.json';
+import axios from 'axios';
 
 export default class Swiper extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            profileIndex: 0,
+            businessList: [],
+            profileIndex: 4,
         }
     }
+
+    componentDidMount() {
+        axios.get('https://api.yelp.com/v3/businesses/search', {
+            headers: {
+                Authorization: `Bearer 4TwtB1xSvyHl5nDWqmOPj_3cHANyKsn8XhO2lBR2xdjRWs52PivbW-wdvQ92uWNIYR76VeQxXfSyh7jREVLe_HBd31tuPk08L5lIsHyEb449yLFbeGnPzbZGDaz_XHYx`,
+            },
+            params: {
+                location: 'charlotte',
+            },
+        })
+        .then(response => {
+            this.setState({
+                businessList: response.data.businesses
+            });
+        })
+        .catch(error => {
+            console.log('DATA NOT RETURNED', error);
+        });
+    }
+
     nextCard = () => {
         this.setState({ profileIndex: this.state.profileIndex + 1 })
     }
+
     static navigationOptions = {
         headerTitle: <Header />,
     };
+
     render() {
-        const { profileIndex } = this.state;
+        const { profileIndex, businessList } = this.state;
         return (
             <View style={styles.appContainer}>
                 <View style={styles.profileWrapper}>
-                    {profiles.slice(profileIndex, profileIndex + 5).reverse().map((profile, i) => {
+                    {businessList.slice(profileIndex, profileIndex + 10).reverse().map((business) => {
                         return (
                             <Card
-                                profile={profile}
-                                key={profile.id}
+                                business={business}
+                                key={business.id}
                                 onSwipeOff={this.nextCard}
                             />
                         );
