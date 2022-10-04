@@ -10,7 +10,7 @@
   "dependencies": {
     "@google/maps": "^0.5.5",
     "axios": "^0.19.0",
-    "expo": "^39.0.0",
+    "expo": "^39.0.5",
     "expo-app-auth": "~9.2.0",
     "expo-facebook": "~9.0.0",
     "expo-google-sign-in": "~8.3.0",
